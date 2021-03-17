@@ -29,14 +29,33 @@ namespace FoodPal.Auth.Controllers
         [HttpPost]
         public async Task<IActionResult> RegisterUser(RegisterUserRequest request)
         {
+            AppUser appUser = new AppUser()
+            {
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                UserName = request.Username,
+                Email = request.Username
+            };
 
-            return Ok();
+            var identityResult = await userManager.CreateAsync(appUser, request.Password);
+
+            if(identityResult.Succeeded)
+            {
+               return Ok();
+            }
+
+            if(identityResult.Errors.Count() != 0)
+            {
+                return BadRequest(identityResult.Errors.ToArray());
+            }
+
+            return BadRequest();
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> LoginUser(LoginUserRequest request)
         {
-            var user = await userManager.FindByIdAsync(request.Username); 
+            var user = await userManager.FindByNameAsync(request.Username); 
 
             if(user != null && !await userManager.IsLockedOutAsync(user))
             {

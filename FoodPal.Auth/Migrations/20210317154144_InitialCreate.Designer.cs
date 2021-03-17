@@ -4,14 +4,16 @@ using FoodPal.Auth.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FoodPal.Auth.Migrations
 {
     [DbContext(typeof(AppIdentityContext))]
-    partial class AppIdentityContextModelSnapshot : ModelSnapshot
+    [Migration("20210317154144_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -94,13 +96,13 @@ namespace FoodPal.Auth.Migrations
                         {
                             Id = "ADMIN",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "86636d03-c8bc-4afe-b79f-d35ba9ecb08b",
+                            ConcurrencyStamp = "d1fe2248-5183-4cdd-a88d-6a13ae1b0a41",
                             Email = "cristian.hosu@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEERP7XFVbtoTtDZjX/s8vzYM9/o81TuHjow2dMhHkO/W/C5obAJ5/mZs9BkvkstR0g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBuGjr+dIMc3OHCMxyppwE/FIIMwTLiIx/8MxqjRsQUZspSPstIxMOnDcK8nprvMyQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d3ea4af1-6d56-4dd2-992e-a0b0d847abe6",
+                            SecurityStamp = "887b64e2-6187-4148-bb46-de029abe8599",
                             TwoFactorEnabled = false,
                             UserName = "cristian.hosu@gmail.com"
                         });
@@ -157,21 +159,21 @@ namespace FoodPal.Auth.Migrations
                         new
                         {
                             Id = "client",
-                            ConcurrencyStamp = "792ca6aa-f4a9-4227-89a2-05bed84a5e64",
+                            ConcurrencyStamp = "0de8a95e-eb85-4739-b045-b1d587be1a8f",
                             Name = "Client",
                             NormalizedName = "CLIENT"
                         },
                         new
                         {
                             Id = "delivery",
-                            ConcurrencyStamp = "b3088346-a389-43d1-be3e-d83bb2be381b",
+                            ConcurrencyStamp = "13785cdb-44be-49df-897a-760c75afc5a1",
                             Name = "Delivery Person",
                             NormalizedName = "DELIVERY_PERSON"
                         },
                         new
                         {
                             Id = "admin",
-                            ConcurrencyStamp = "69c4b28d-a70f-4852-a644-b56c85c1fff7",
+                            ConcurrencyStamp = "3d878628-26b0-4915-9b97-28fcce7c1ed2",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
